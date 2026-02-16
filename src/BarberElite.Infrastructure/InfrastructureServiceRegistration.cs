@@ -1,3 +1,5 @@
+using BarberElite.Application.Barbeiros.Interfaces;
+using BarberElite.Application.Disponibilidades.Interfaces;
 using BarberElite.Application.Servicos.Interfaces;
 using BarberElite.Infrastructure.Persistence;
 using BarberElite.Infrastructure.Repositories;
@@ -16,6 +18,8 @@ public static class InfrastructureServiceRegistration
 
         // Repositories
         services.AddScoped<IServicoRepository, ServicoRepository>();
+        services.AddScoped<IBarbeiroRepository, BarbeiroRepository>();
+        services.AddScoped<IDisponibilidadeRepository, DisponibilidadeRepository>();
 
         return services;
     }
