@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BarberElite.Api/BarberElite.Api.csproj" />
+    <Project Path="src/BarberElite.Application/BarberElite.Application.csproj" />
+    <Project Path="src/BarberElite.Domain/BarberElite.Domain.csproj" />
+    <Project Path="src/BarberElite.Infrastructure/BarberElite.Infrastructure.csproj" />
+  </Folder>
+</Solution>

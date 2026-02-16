@@ -1,0 +1,108 @@
+{
+  "project": {
+    "name": "BarberElite SaaS",
+    "description": "Sistema de gestão para barbearias com agendamento online, controle financeiro e arquitetura preparada para SaaS multi-tenant."
+  },
+  "architecture": {
+    "backend": {
+      "framework": ".NET 8",
+      "pattern": ["Clean Architecture", "DDD"],
+      "layers": ["Domain", "Application", "Infrastructure", "API"],
+      "authentication": "JWT",
+      "validation": "FluentValidation",
+      "security": {
+        "password_hash": "BCrypt",
+        "refresh_token": true,
+        "role_based_authorization": true
+      }
+    },
+    "frontend": {
+      "framework": "React",
+      "styling": "TailwindCSS",
+      "state_management": "Context API or Zustand",
+      "http_client": "Axios",
+      "routing": "React Router"
+    },
+    "database": {
+      "provider": "SQL Server",
+      "multi_tenant": true,
+      "tenant_strategy": "TenantId column with global query filter"
+    }
+  },
+  "design": {
+    "theme": "Dark Premium",
+    "color_palette": {
+      "background": "#141414",
+      "cards": "#1f1f1f",
+      "primary": "#ffc800",
+      "secondary": "#8a6e0a"
+    }
+  },
+  "user_roles": [
+    "Cliente",
+    "Barbeiro",
+    "Administrador"
+  ],
+  "entities": [
+    "Tenant",
+    "Usuario",
+    "Cliente",
+    "Barbeiro",
+    "Servico",
+    "Agendamento",
+    "Pagamento",
+    "Comissao",
+    "DisponibilidadeHorario"
+  ],
+  "features": {
+    "cliente": [
+      "Cadastro",
+      "Login JWT",
+      "Visualizar barbeiros",
+      "Visualizar serviços",
+      "Agendar horário",
+      "Cancelar agendamento até 2h antes",
+      "Histórico de agendamentos",
+      "Pagamento via Pix ou Cartão"
+    ],
+    "barbeiro": [
+      "Visualizar agenda",
+      "Definir horários disponíveis",
+      "Visualizar ganhos",
+      "Visualizar comissão"
+    ],
+    "administrador": [
+      "Dashboard financeiro",
+      "Cadastro de barbeiros",
+      "Cadastro de serviços",
+      "Definir comissão por barbeiro",
+      "Relatórios exportáveis",
+      "Controle de pagamentos"
+    ]
+  },
+  "business_rules": [
+    "Não permitir dois agendamentos no mesmo horário para o mesmo barbeiro",
+    "Serviço deve ter duração definida",
+    "Comissão calculada após confirmação de pagamento",
+    "Cancelamento permitido até 2 horas antes"
+  ],
+  "payment_integration": {
+    "provider": ["Stripe", "Mercado Pago"],
+    "webhook": true,
+    "payment_status": ["Pendente", "Pago", "Cancelado"]
+  },
+  "api_requirements": [
+    "Swagger",
+    "Global exception handling",
+    "Pagination",
+    "Filtering by date",
+    "Seed inicial de dados"
+  ],
+  "deliverables": [
+    "Modelagem completa do banco",
+    "Estrutura de pastas organizada",
+    "DTOs separados por Create/Update/Response",
+    "API REST funcional",
+    "Integração com gateway real"
+  ]
+}
